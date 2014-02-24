@@ -2,10 +2,10 @@ class App < Sinatra::Base
   register Sinatra::AssetPack
 
   assets {
-    serve '/css', {:from => 'assets/css'}
-    serve '/images', {:from => 'assets/images'}
+    serve '/css',    { :from => 'assets/css' }
+    serve '/images', { :from => 'assets/images' }
 
-    css :application, ['css/application.css']
+    css :application, [ 'css/application.css' ]
 
     css_compression :yui
   }
