@@ -1,10 +1,18 @@
-require 'sinatra'
-require 'sass'
+class App < Sinatra::Base
+  register Sinatra::AssetPack
 
-get '/' do
-  erb :index
-end
+  assets {
+    serve '/css', {:from => 'assets/css'}
+    serve '/images', {:from => 'assets/images'}
 
-get '/application.css' do
-  scss :application, :format => :compressed
+    css :application, ['css/application.css']
+
+    css_compression :yui
+  }
+
+  set :scss, { :load_paths => [ "#{App.root}/assets/css" ] }
+
+  get '/' do
+    erb :index
+  end
 end

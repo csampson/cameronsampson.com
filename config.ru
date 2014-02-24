@@ -1,3 +1,8 @@
-require File.expand_path '../app.rb', __FILE__
+require 'sinatra'
+require 'sinatra/assetpack'
+require 'sass'
+require 'yui/compressor'
 
-run Sinatra::Application
+require './app'
+App.set :run, false
+run App
