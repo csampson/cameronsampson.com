@@ -3,13 +3,9 @@ html {
 }
 
 body {
-  -moz-box-shadow: 0 0 0.75em rgba(0,0,0,0.15);
-  -webkit-box-shadow: 0 0 0.75em rgba(0,0,0,0.15);
-  -o-box-shadow: 0 0 0.75em rgba(0,0,0,0.15);
-  -ms-box-shadow: 0 0 0.75em rgba(0,0,0,0.15);
   box-shadow: 0 0 0.75em rgba(0,0,0,0.15);
   border: 1px solid #BBB;
-  background: white;
+  background: #FFF;
   color: #272727;
   font-family: 'Open Sans', sans-serif;
   font-size: 85%;
@@ -19,14 +15,11 @@ body {
 }
 
 a {
-  -moz-transition: color .25s 0s;
-  -webkit-transition: color .25s 0s;
-  -o-transition: color .25s 0s;
-  transition: color .25s 0s;
+  @include transition(color .25s 0s);
   color: #272727;
   font-weight: bold;
-}
 
-a:hover {
-  color: #777;
+  &:hover {
+    color: #777;
+  }
 }
