@@ -2,267 +2,271 @@
 @import 'normalize';
 @import 'base';
 
-header {
-  text-align: center;
-  padding: 25px 0;
-  position: relative;
-}
-
-header h1 {
-  line-height: 1;
-  margin-top: 0;
-}
-
-header p {
-  font-size: 110%;
-  margin-bottom: 0;
-}
-
-section {
+%page-section {
   padding: 5px 0;
   overflow: hidden;
+  clear: both;
 }
 
-h2 {
+%page-subheader {
   border-bottom: 1px dotted #AAA;
   font-size: 100%;
   line-height: 0;
   margin-bottom: 1.5em;
 }
 
-h2 span {
+%page-subheader span {
   background: white;
   padding: 0 5px;
   margin-left: 15px;
 }
 
-#personal-links {
+.page-header {
+  text-align: center;
+  padding: 25px 0;
+  position: relative;
+}
+
+.page-header-title {
+  line-height: 1;
+  margin-top: 0;
+}
+
+.page-header-spiel {
+  font-size: 110%;
+  margin-bottom: 0;
+}
+
+.personal-links {
   position: absolute;
   right: -15px;
   top: -15px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+    float: left;
+    margin-right: 5px;
+  }
+
+  a {
+    color: #BBB;
+    font-size: 165%;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #555;
+  }
+
+  a span {
+    text-indent: -999em;
+    display: inline-block;
+  }
 }
 
-#personal-links ul {
-  padding: 0;
-  margin: 0;
+.skills {
+  @extend %page-section;
 }
 
-#personal-links li {
-  list-style: none;
+.skills-header {
+  @extend %page-subheader;
+}
+
+.skills-breakdown, .skills-chart, .skills-interests {
   float: left;
-  margin-right: 5px;
 }
 
-#personal-links a {
-  color: #BBB;
-  font-size: 165%;
-  text-decoration: none;
-}
-
-#personal-links a:hover, #personal-links a:focus {
-  color: #555;
-}
-
-#personal-links a span {
-  text-indent: -999em;
-  display: inline-block;
-}
-
-#skills figure, #skills dl, #skills ul {
-  float: left;
-}
-
-#skills figure {
+.skills-breakdown {
   width: 35%;
   margin: 0;
+
+  .skills-breakdown-divisions {
+    margin: 10px 0;
+    overflow: hidden;
+
+    .development-division, .design-division {
+      background: #272727;
+      color: #FFF;
+      text-align: center;
+      height: 75px;
+      line-height: 75px;
+      width: 60%;
+      float: left;
+    }
+
+    .design-division {
+      background: #E7E7E7;
+      color: #272727;
+      width: 40%;
+    }
+  }
+
+  .development-spiel, .design-spiel {
+    font-size: 80%;
+  }
+
+  .design-spiel {
+    text-align: right;
+  }
 }
 
-#skills figure div {
-  margin: 10px 0;
-  overflow: hidden;
-}
-
-#skills figure span {
-  background: #272727;
-  color: #FFF;
-  text-align: center;
-  height: 75px;
-  line-height: 75px;
-  width: 60%;
-  float: left;
-
-  &.design { width: 40%; }
-}
-
-* + html #skills figure span {
-  width: 49.5%;
-}
-
-#skills figure span + span {
-  background: #E7E7E7;
-  color: #272727;
-}
-
-#skills figcaption {
-  font-size: 80%;
-}
-
-#skills div + figcaption {
-  text-align: right;
-}
-
-#skills dl {
+.skills-chart {
   line-height: 1;
   width: 22%;
   margin: 1em 2% 0 6%;
   overflow: hidden;
+
+  .skill-name, .skill-proficiency {
+    float: left;
+  }
+
+  .skill-name {
+    font-size: 85%;
+    margin: 5px 5px 8px 0;
+    clear: left;
+  }
+
+  .skill-name span {
+    text-indent: -9999em;
+    display: inline-block;
+  }
+
+  .skill-proficiency {
+    width: 100%;
+    height: 8px;
+    margin: 0;
+  }
+
+  .skill-proficiency span {
+    background: #272727;
+    width: 25%;
+    height: 100%;
+    text-indent: -9999px;
+    vertical-align: middle;
+    display: block;
+  }
+
+  .skill-proficiency.adept span {
+    width: 40%;
+  }
+
+  .skill-proficiency.intermediate span {
+    width: 55%;
+  }
+
+  .skill-proficiency.skilled span {
+    width: 70%;
+  }
+
+  .skill-proficiency.advanced span {
+    width: 90%;
+  }
 }
 
-* + #skills dl {
-  margin-left: 5%;
-}
-
-#skills dt, #skills dd {
-  float: left;
-}
-
-#skills dt {
-  font-size: 85%;
-  margin: 5px 5px 8px 0;
-  clear: left;
-}
-
-#skills dt span {
-  text-indent: -9999em;
-  display: inline-block;
-}
-
-#skills dd {
-  width: 100%;
-  height: 8px;
-  margin: 0;
-}
-
-* + html #skills dd {
-  float: none;
-}
-
-#skills dd span {
-  background: #272727;
-  width: 25%;
-  height: 100%;
-  text-indent: -9999px;
-  vertical-align: middle;
-  display: block;
-}
-
-* + html #skills dd span {
-  text-indent: 0;
-  font-size: 0;
-}
-
-#skills dd.novice span {
-  width: 40%;
-}
-
-#skills dd.intermediate span {
-  width: 55%;
-}
-
-#skills dd.skilled span {
-  width: 70%;
-}
-
-#skills dd.advanced span {
-  width: 90%;
-}
-
-#skills ul {
+.skills-interests {
   font-size: 115%;
   line-height: 2.5;
   width: 35%;
   padding-left: 0;
   margin: 1em 0;
+
+  li {
+    list-style: none;
+  }
+
+  li span {
+    vertical-align: middle;
+  }
+
+  .icon {
+    background: url('/images/icons.png') no-repeat;
+    width: 28px;
+    height: 28px;
+    margin-right: 0.25em;
+    display: inline-block;
+  }
+
+  .icon.brush {
+    background-position: -28px top;
+  }
+
+  .icon.user {
+    background-position: right top;
+  }
 }
 
-#skills li {
-  list-style: none;
+.portfolio {
+  @exnted %page-section;
+
+  .portfolio-header {
+    @extend %page-subheader;
+  }
+
+  .portfolio-projects {
+    list-style: none;
+    padding: 0;
+    padding: 0 6px;
+    margin: 15px 0 0;
+  }
+
+  .portfolio-project {
+    width: 48%;
+    margin: 5px 0;
+    float: left;
+    position: relative;
+  }
+
+  .portfolio-project.even {
+    margin-right: 4%;
+    clear: left;
+  }
+
+  .portfolio-project.contribution::before {
+    content: 'contribution';
+    background: #363636;
+    color: #FFF;
+    font-size: 80%;
+    font-weight: bold;
+    padding: 1ex;
+    position: absolute;
+    right: 0;
+    top: 4px;
+  }
+
+  .portfolio-project a {
+    box-shadow: 0 1px 2px #777;
+    border: 4px solid #EEE;
+    background: none repeat scroll 0 0 #272727;
+    text-align: center;
+    height: 150px;
+    line-height: 150px;
+    padding: 0 10px;
+    margin: 0 -4px;
+    display: block;
+  }
+
+  .portfolio-project img {
+    border: none;
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
-#skills li span {
-  vertical-align: middle;
+.about-me {
+  @extend %page-section;
+
+  .about-me-header {
+    @extend %page-subheader;
+  }
 }
 
-#skills .icon {
-  background: url('/images/icons.png') no-repeat;
-  width: 28px;
-  height: 28px;
-  margin-right: 0.25em;
-  display: inline-block;
-}
-
-#skills .icon.brush {
-  background-position: -28px top;
-}
-
-#skills .icon.user {
-  background-position: right top;
-}
-
-#portfolio ul {
-  list-style: none;
-  padding: 0;
-  padding: 0 6px;
-  margin: 15px 0 0;
-}
-
-#portfolio li {
-  width: 48%;
-  margin: 5px 0;
-  float: left;
-  position: relative;
-}
-
-#portfolio li.even {
-  margin-right: 4%;
-  clear: left;
-}
-
-#portfolio li.contribution::before {
-  content: 'contribution';
-  background: #363636;
-  color: #FFF;
-  font-size: 80%;
-  font-weight: bold;
-  padding: 1ex;
-  position: absolute;
-  right: 0;
-  top: 4px;
-}
-
-#portfolio li a {
-  -moz-box-shadow: 0 1px 2px #777;
-  -webkit-box-shadow: 0 1px 2px #777;
-  -o-box-shadow: 0 1px 2px #777;
-  -ms-box-shadow: 0 1px 2px #777;
-  box-shadow: 0 1px 2px #777;
-  border: 4px solid #EEE;
-  background: none repeat scroll 0 0 #272727;
-  text-align: center;
-  height: 150px;
-  line-height: 150px;
-  padding: 0 10px;
-  margin: 0 -4px;
-  display: block;
-}
-
-#portfolio img {
-  border: none;
-  max-width: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-
+/*
 @media (max-width: 800px) {
   body {
     width: 92.5%;
@@ -350,3 +354,4 @@ h2 span {
     float: none;
   }
 }
+*/
