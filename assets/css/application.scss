@@ -266,20 +266,20 @@
   }
 }
 
-/*
-@media (max-width: 800px) {
+
+@media (max-width: 980px) {
   body {
     width: 92.5%;
     padding: 1.875%;
     margin: 1.875%;
   }
 
-  #personal-links {
+  .personal-links {
     top: 1.875%;
     right: 1.875%;
   }
 
-  #skills ul {
+  .skills-interests {
     font-size: 100%;
   }
 }
@@ -289,44 +289,44 @@
     width: 97.5%;
   }
 
-  header h1 {
+  .page-header-title {
     font-size: 150%;
   }
 
-  #personal-links {
+  .personal-links {
     text-align: center;
     margin-top: 25px;
     position: static;
   }
 
-  #personal-links li {
+  .personal-links li {
     float: none;
     display: inline-block;
   }
 
-  #personal-links a {
+  .personal-links a {
     color: #272727;
     font-size: 200%;
   }
 
-  #skills figure, #skills dl {
+  .skills-breakdown, .skills-chart {
     width: 46%;
     margin: 0 4% 0 0;
   }
 
-  #skills ul {
+  .skills-interests {
     width: 100%;
     text-align: center;
     clear: both;
   }
 
-  #skills li {
+  .skills-interests li {
     margin: 0 1em;
     display: inline-block;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   body {
     border: none;
     width: auto;
@@ -334,24 +334,23 @@
     margin: 0;
   }
 
-  header h1 {
+  .page-header-title {
     font-size: 110%;
   }
 
-  #skills figure, #skills dl, #skills ul {
+  .skills-breakdown, .skills-chart, .skills-interests {
     width: auto;
     margin: 2em 0;
     float: none;
   }
 
-  #skills ul {
+  .skills-interests {
     font-size: 125%;
     text-align: left;
   }
 
-  #portfolio li {
+  .portfolio-project {
     width: 100%;
     float: none;
   }
 }
-*/

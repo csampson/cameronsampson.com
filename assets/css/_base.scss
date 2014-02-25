@@ -1,3 +1,7 @@
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
 html {
   background: #E8E8E8;
 }
@@ -9,7 +13,7 @@ body {
   color: #272727;
   font-family: 'Open Sans', sans-serif;
   font-size: 85%;
-  width: 750px;
+  width: 960px;
   padding: 25px;
   margin: 2.5% auto;
 }
