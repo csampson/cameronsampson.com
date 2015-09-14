@@ -1,0 +1,99 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/**
+ * Let the ES6ification begin. Enables Babel and its polyfills
+ * @see {@link http://babeljs.io/docs/usage/require/}
+ */
+require('babel/register');
+
+let app   = require('../site');
+let debug = require('debug')('site:server');
+let http  = require('http');
+
+let config = new Map();
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+function normalizePort(value) {
+  let port = parseInt(value, 10);
+
+  /**
+   * Handle named pipes
+   */
+  if (Number.isNaN(port)) {
+    return value;
+  }
+
+  if (port >= 0) {
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+function onError(error) {
+  let port = config.get('port');
+
+  if (error.syscall !== 'listen') {
+    throw new Error(error);
+  }
+
+  let bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  /**
+   * Handle specific listen errors with friendly messages
+   */
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges.');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use.');
+      process.exit(1);
+      break;
+    default:
+      throw new Error(error);
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+function onListening() {
+  let server  = config.get('server');
+  let address = server.address();
+  let bind    = typeof address === 'string'
+    ? 'pipe ' + address
+    : 'port ' + address.port;
+
+  debug('Listening on ' + bind);
+}
+
+/**
+ * Get port from environment and store in Express.
+ */
+let port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+config.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+let server = http.createServer(app);
+config.set('server', server);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
