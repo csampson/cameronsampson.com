@@ -5,8 +5,13 @@
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <meta name='description' content="I'm a developer/designer living in New Orleans. During the day, I build cool things at Lucid." />
   <title>Cameron Sampson</title>
-  <script src="https://use.typekit.net/sbt3yhe.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <% if (settings.env === 'production') { %>
+    <script src="https://use.typekit.net/oqj8ywl.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <% } else { %>
+    <script src="https://use.typekit.net/sbt3yhe.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <% } %>
   <link href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet' type='text/css' />
   <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' rel='stylesheet' type='text/css' />
   <link href='/devicon.min.css' rel='stylesheet' type='text/css' />
