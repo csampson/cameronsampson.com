@@ -94,7 +94,8 @@ a:hover, a:focus {
 .traits-list-item {
   box-sizing: border-box;
   padding: 1rem 0.5rem;
-  display: inline-block;
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 .traits-list-item:nth-child(5) {
